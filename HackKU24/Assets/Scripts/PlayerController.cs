@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     public ContactFilter2D movementFilter;
     Vector2 movementInput;
     Rigidbody2D rb;
+    private Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -57,6 +59,16 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputValue movementValue) {
         movementInput = movementValue.Get<Vector2>();
+        if(movementInput.x != 0 || movementInput.y != 0) {
+            animator.SetFloat("X", movementInput.x);
+            animator.SetFloat("Y", movementInput.y);
+
+            animator.SetBool("isWalking", true);    
+        } else {
+            animator.SetBool("isWalking", false);
+        }
+
+        
         Debug.Log(movementValue);
     }
 }
