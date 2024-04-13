@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float moveSpeed = 1;
+    public float moveSpeed = 5;
     public float collisionOffset = 0.02f;
     public ContactFilter2D movementFilter;
     Vector2 movementInput;
