@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Goblin
   - Seed
+  - SpawnRegion
+  - Plant
   layers:
   - Default
   - TransparentFX
