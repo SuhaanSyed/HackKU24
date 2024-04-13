@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float moveSpeed = 5;
+    public float moveSpeed = 4;
     public float collisionOffset = 0.02f;
     public ContactFilter2D movementFilter;
     Vector2 movementInput;
@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     private void FixedUpdate() {
-    
+
         if(movementInput != Vector2.zero) {
-            
+
             bool success = TryMove(movementInput);
 
             if(!success) {
@@ -63,12 +63,12 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("X", movementInput.x);
             animator.SetFloat("Y", movementInput.y);
 
-            animator.SetBool("isWalking", true);    
+            animator.SetBool("isWalking", true);
         } else {
             animator.SetBool("isWalking", false);
         }
 
-        
+
         Debug.Log(movementValue);
     }
 }
