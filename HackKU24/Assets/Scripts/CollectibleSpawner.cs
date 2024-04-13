@@ -3,6 +3,7 @@ using UnityEngine;
 public class CollectibleSpawner : MonoBehaviour
 {
     public GameObject collectiblePrefab;
+    
     public float spawnRate = 1.0f;
     public int maxSpawns = 20;
 
