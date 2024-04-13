@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float moveSpeed = 4;
+
     public float collisionOffset = 0.02f;
     public ContactFilter2D movementFilter;
     Vector2 movementInput;
