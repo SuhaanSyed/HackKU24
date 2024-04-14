@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9f68977f852c454cb8c257ff67c5439, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   toSpawn: {fileID: 8218372500752804634, guid: a49450a69935d4cb98d1b8f8add8ee9b, type: 3}
   spawnIn: {fileID: 3075561077176536952, guid: aa91ac83ef99c4d068ed3177bdb7a3e1, type: 3}
   spawnRate: 2
@@ -20562,11 +20562,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2501945914390781656, guid: fbf590bb7301c4bcaa87f0ddc75e6215, type: 3}
       propertyPath: animator
-      value: 
+      value:
       objectReference: {fileID: 1631534119}
     - target: {fileID: 2501945914390781656, guid: fbf590bb7301c4bcaa87f0ddc75e6215, type: 3}
       propertyPath: plantPrefab
-      value: 
+      value:
       objectReference: {fileID: 3943691683555359903, guid: 8296fa0fc348349c6a0ce4d5a60d02a8, type: 3}
     - target: {fileID: 4143409639566949471, guid: fbf590bb7301c4bcaa87f0ddc75e6215, type: 3}
       propertyPath: m_Name
@@ -20816,8 +20816,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a24a441d910745b785fa6b1919eefc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   target: {fileID: 1319835008}
   smoothTime: 0.3
   seedlingCount: 0
@@ -21180,8 +21180,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2710c2f23570a4ffd8cea96ef361ee21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   secondLayerCloudTilemap: {fileID: 1529207498}
   fadeDuration: 35
   delay: 60
@@ -69567,8 +69567,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47684707095ed42e297edfd9b1c30470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   cloudTilemap: {fileID: 2097347400}
   fadeDuration: 60
 --- !u!483693784 &2097347399
