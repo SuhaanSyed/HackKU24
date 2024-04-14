@@ -161,6 +161,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlantInteract : MonoBehaviour
 {
@@ -185,6 +186,14 @@ public class PlantInteract : MonoBehaviour
                     seedlingPlanted++;
                 }
             }
+        }
+
+        if(seedlingPlanted == 10)
+        {
+            // Win the game
+            Debug.Log("You win!");
+            // load the win scene
+            SceneManager.LoadScene("WinScene");
         }
     }
 
