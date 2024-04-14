@@ -6,46 +6,65 @@ using UnityEngine.Tilemaps;
 public class CloudOpacity : MonoBehaviour
 {
     public Tilemap cloudTilemap;
-    public float fadeDuration = 30f; // Duration of the fading effect in seconds
+    public GameObject gameOverScene;
+    public int maxOpacity = 255; // Maximum opacity of the cloud
+    public int goblinDeathThreshold = 5; // Number of goblin deaths required for maximum opacity
 
-    private float timer; // Timer to keep track of the time
-    private float maxTime = 90f; // 1 min 30 sec in seconds
-    private bool isFading = false; // Flag to check if fading is in progress
+    public int goblinDeathCount = 0; // Number of goblin deaths
+    private float targetOpacity = 0f; // Target opacity of the cloud
+    private float currentOpacity = 0f; // Current opacity of the cloud
+    private float fadeDuration = 1f; // Duration of the fading effect in seconds
 
-    private void Awake()
+    private Coroutine opacityCoroutine; // Coroutine for fading opacity
+
+    private void Start()
     {
-        timer = 0f; // Initialize the timer
+        UpdateCloudOpacity();
     }
 
-    private void Update()
+    // Call this method whenever a goblin dies
+    public void GoblinDied()
     {
-        timer += Time.deltaTime; // Increment the timer
-        
-        // Check if it's time to start fading
-        if (timer <= maxTime - fadeDuration && !isFading)
+        goblinDeathCount++; // Increment the goblin death count
+        UpdateCloudOpacity(); // Update cloud opacity based on the new goblin death count
+
+        // Check if all goblins are dead
+        if (goblinDeathCount >= goblinDeathThreshold)
         {
-            isFading = true;
-            StartCoroutine(FadeCloud());
-            MoveClouds();
+            LoadGameOverScene(); // Load the game over scene
         }
     }
 
-    IEnumerator FadeCloud()
+    // Update cloud opacity based on goblin death count
+    private void UpdateCloudOpacity()
     {
-        float startOpacity = 0f; // Initial opacity
-        float endOpacity = 1f; // Target opacity
-        float elapsedTime = 0f; // Elapsed time for the fading effect
+        // Calculate target opacity based on goblin death count
+        targetOpacity = (float)maxOpacity / goblinDeathThreshold * goblinDeathCount;
+        targetOpacity = Mathf.Clamp(targetOpacity, 0f, maxOpacity); // Clamp the opacity between 0 and maxOpacity
 
-        Color color = cloudTilemap.color; // Get the current color of the cloud
-        
-        // Fade from current opacity to 1 (fully visible) over 'fadeDuration' seconds
+        // Start fading opacity
+        if (opacityCoroutine != null)
+        {
+            StopCoroutine(opacityCoroutine);
+        }
+        opacityCoroutine = StartCoroutine(FadeCloud());
+    }
+
+    // Coroutine for fading opacity
+    private IEnumerator FadeCloud()
+    {
+        float elapsedTime = 0f; // Elapsed time for the fading effect
+        float startingOpacity = currentOpacity; // Store the starting opacity
+
         while (elapsedTime < fadeDuration)
         {
             // Calculate the new opacity using lerp
             float t = elapsedTime / fadeDuration;
-            color.a = Mathf.Lerp(startOpacity, endOpacity, t);
+            currentOpacity = Mathf.Lerp(startingOpacity, targetOpacity, t);
 
-            // Apply the new color to the cloud's sprite renderer
+            // Set the cloud's opacity
+            Color color = cloudTilemap.color;
+            color.a = currentOpacity / 255f; // Opacity values are usually between 0 and 1
             cloudTilemap.color = color;
 
             // Increment the elapsed time
@@ -56,15 +75,26 @@ public class CloudOpacity : MonoBehaviour
         }
 
         // Ensure the final opacity is set
-        color.a = endOpacity;
-        cloudTilemap.color = color;
+        currentOpacity = targetOpacity;
+
+        // Set the cloud's opacity
+        Color finalColor = cloudTilemap.color;
+        finalColor.a = currentOpacity / 255f; // Opacity values are usually between 0 and 1
+        cloudTilemap.color = finalColor;
     }
 
-    // Move Clouds to the left
-    public void MoveClouds()
+    // Load the game over scene
+    private void LoadGameOverScene()
     {
-        cloudTilemap.transform.position = new Vector3(cloudTilemap.transform.position.x - 0.5f, cloudTilemap.transform.position.y, cloudTilemap.transform.position.z);
+        if (gameOverScene != null)
+        {
+            // You can use SceneManager.LoadScene() or any other method to load the game over scene
+            // For now, let's just activate the game over scene GameObject if it's assigned
+            gameOverScene.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Game Over Scene is not assigned!");
+        }
     }
-
-
 }
