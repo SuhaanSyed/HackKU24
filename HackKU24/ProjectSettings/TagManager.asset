@@ -9,6 +9,8 @@ TagManager:
   - SpawnRegion
   - Plant
   - Planter
+  - Enemy
+  - EnemySpawnRegion
   layers:
   - Default
   - TransparentFX
