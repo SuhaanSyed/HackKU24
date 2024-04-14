@@ -8,6 +8,7 @@ TagManager:
   - Seed
   - SpawnRegion
   - Plant
+  - Planter
   layers:
   - Default
   - TransparentFX
