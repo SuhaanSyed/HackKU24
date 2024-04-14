@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-using System.Collections;
-using System.Collections.Generic;
-=======
 
 
->>>>>>> main
 using UnityEngine;
 
 public class TesterCode : MonoBehaviour

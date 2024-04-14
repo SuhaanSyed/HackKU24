@@ -9,8 +9,6 @@ public class CloudOpacity : MonoBehaviour
     public GameObject gameOverScene;
     public int maxOpacity = 255; // Maximum opacity of the cloud
     public int goblinDeathThreshold = 5; // Number of goblin deaths required for maximum opacity
-<<<<<<< HEAD
-
     public int goblinDeathCount = 0; // Number of goblin deaths
     private float targetOpacity = 0f; // Target opacity of the cloud
     private float currentOpacity = 0f; // Current opacity of the cloud
@@ -18,15 +16,6 @@ public class CloudOpacity : MonoBehaviour
 
     private Coroutine opacityCoroutine; // Coroutine for fading opacity
 
-=======
-    public int goblinDeathCount = 0; // Number of goblin deaths
-    private float targetOpacity = 0f; // Target opacity of the cloud
-    private float currentOpacity = 0f; // Current opacity of the cloud
-    private float fadeDuration = 1f; // Duration of the fading effect in seconds
-
-    private Coroutine opacityCoroutine; // Coroutine for fading opacity
-
->>>>>>> main
     private void Start()
     {
         UpdateCloudOpacity();
@@ -41,12 +30,8 @@ public class CloudOpacity : MonoBehaviour
         // Check if all goblins are dead
         if (goblinDeathCount >= goblinDeathThreshold)
         {
-<<<<<<< HEAD
-            LoadGameOverScene(); // Load the game over scene
-=======
             // LoadGameOverScene(); // Load the game over scene
             // Fade In Cloud
->>>>>>> main
         }
     }
 
@@ -112,8 +97,4 @@ public class CloudOpacity : MonoBehaviour
             Debug.LogError("Game Over Scene is not assigned!");
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> main

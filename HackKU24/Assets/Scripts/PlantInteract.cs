@@ -161,6 +161,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlantInteract : MonoBehaviour
 {
@@ -168,6 +170,8 @@ public class PlantInteract : MonoBehaviour
     public Animator animator;
     public GameObject plantPrefab;
 
+    [Header("You Won Scene")]
+    [SerializeField] private SceneField youWonSceneName;
     public int seedlingPlanted = 0;
 
     void Update()
@@ -183,8 +187,16 @@ public class PlantInteract : MonoBehaviour
                     planter.Plant();
                     seedlingCount--;
                     seedlingPlanted++;
+
+                    
                 }
             }
+        }
+    
+        if (seedlingPlanted >= 10)
+        {
+            // Load the "You Won" scene
+            SceneManager.LoadScene(youWonSceneName);
         }
     }
 

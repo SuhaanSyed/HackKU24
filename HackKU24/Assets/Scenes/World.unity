@@ -21248,6 +21248,14 @@ PrefabInstance:
       propertyPath: seedlingCount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2501945914390781656, guid: fbf590bb7301c4bcaa87f0ddc75e6215, type: 3}
+      propertyPath: youWonSceneName._sceneName
+      value: YouWon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501945914390781656, guid: fbf590bb7301c4bcaa87f0ddc75e6215, type: 3}
+      propertyPath: youWonSceneName._sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: df3c0117391a84450b7d3ee46ff4e861, type: 3}
     - target: {fileID: 4143409639566949471, guid: fbf590bb7301c4bcaa87f0ddc75e6215, type: 3}
       propertyPath: m_Name
       value: Player
@@ -23446,7 +23454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondLayerCloudTilemap: {fileID: 1529207498}
-  gameOverSceneName: 
+  gameOverSceneName: Game Over
   cloudOpacity: {fileID: 2097347398}
   fadeDuration: 5
 --- !u!483693784 &1529207497
@@ -94318,7 +94326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2097347397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae43c4dae34d42aa8b3d23e9362c090, type: 3}
+  m_Script: {fileID: 11500000, guid: e12ea27e94626444b8a853f8fde2070b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cloudOpacity: {fileID: 2097347398}
