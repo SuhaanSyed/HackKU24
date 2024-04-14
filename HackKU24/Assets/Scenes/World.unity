@@ -23446,8 +23446,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondLayerCloudTilemap: {fileID: 1529207498}
-  fadeDuration: 35
-  delay: 60
+  gameOverSceneName: 
+  cloudOpacity: {fileID: 2097347398}
+  fadeDuration: 5
 --- !u!483693784 &1529207497
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -72393,6 +72394,7 @@ GameObject:
   - component: {fileID: 2097347400}
   - component: {fileID: 2097347399}
   - component: {fileID: 2097347398}
+  - component: {fileID: 2097347402}
   m_Layer: 0
   m_Name: clouds
   m_TagString: Untagged
@@ -72413,7 +72415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloudTilemap: {fileID: 2097347400}
-  fadeDuration: 60
+  gameOverScene: {fileID: 0}
+  maxOpacity: 255
+  goblinDeathThreshold: 5
+  goblinDeathCount: 0
 --- !u!483693784 &2097347399
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -94304,6 +94309,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2054602830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2097347402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097347397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae43c4dae34d42aa8b3d23e9362c090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudOpacity: {fileID: 2097347398}
 --- !u!1001 &2132540250
 PrefabInstance:
   m_ObjectHideFlags: 0

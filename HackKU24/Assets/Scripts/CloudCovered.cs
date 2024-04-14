@@ -1,62 +1,75 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
-public class SecondLayerCloudOpacity : MonoBehaviour
+public class CloudCovered : MonoBehaviour
 {
     public Tilemap secondLayerCloudTilemap;
-    public float fadeDuration = 30f; // Duration of the fading effect in seconds
-    public float delay = 60f; // Delay before starting the fading effect
-
-    private float timer; // Timer to keep track of the time
-    private float maxTime = 150f; // 2 min 30 sec in seconds
-    private bool isFading = false; // Flag to check if fading is in progress
-
-    private void Awake()
-    {
-        timer = 0f; // Initialize the timer
-    }
+    public string gameOverSceneName; // Name of the game over scene
+    public CloudOpacity cloudOpacity; // Reference to the CloudOpacity script
+    public float fadeDuration = 1f; // Duration of the fading effect in seconds
 
     private void Update()
     {
-        timer += Time.deltaTime; // Increment the timer
-        
-        // Check if it's time to start fading
-        if (timer >= delay && timer <= maxTime - fadeDuration && !isFading)
+        if (cloudOpacity == null)
         {
-            isFading = true;
-            StartCoroutine(FadeCloud());
+            Debug.LogError("CloudOpacity script reference is not set!");
+            return;
+        }
+
+        Debug.Log("Goblin Death Count: " +  cloudOpacity.goblinDeathCount);
+        Debug.Log("Goblin Death Threshold: " + cloudOpacity.goblinDeathThreshold);
+
+        // Check if all goblins are dead and the clouds are not already fading in
+        if (cloudOpacity.goblinDeathCount >= cloudOpacity.goblinDeathThreshold)
+        {
+            Debug.Log("All goblins are dead. Fading in large cloud...");
+
+            StartCoroutine(FadeInCloudAndLoadGameOverScene());
         }
     }
 
-    IEnumerator FadeCloud()
+    public IEnumerator FadeInCloudAndLoadGameOverScene()
     {
         float startOpacity = 0f; // Initial opacity
         float endOpacity = 1f; // Target opacity
         float elapsedTime = 0f; // Elapsed time for the fading effect
 
-        Color color = secondLayerCloudTilemap.color; // Get the current color of the cloud
-        
+        // Ensure the clouds are at the starting opacity before fading
+        SetCloudOpacity(startOpacity);
+
+        Debug.Log("Fading in large cloud...");
+
         // Fade from current opacity to 1 (fully visible) over 'fadeDuration' seconds
         while (elapsedTime < fadeDuration)
         {
             // Calculate the new opacity using lerp
             float t = elapsedTime / fadeDuration;
-            color.a = Mathf.Lerp(startOpacity, endOpacity, t);
+            float currentOpacity = Mathf.Lerp(startOpacity, endOpacity, t);
 
-            // Apply the new color to the cloud's sprite renderer
-            secondLayerCloudTilemap.color = color;
+            // Set the cloud's opacity
+            SetCloudOpacity(currentOpacity);
 
-            // Increment the elapsed time
+            // Update the elapsed time
             elapsedTime += Time.deltaTime;
 
-            // Wait for the next frame
             yield return null;
         }
 
-        // Ensure the final opacity is set
-        color.a = endOpacity;
-        secondLayerCloudTilemap.color = color;
+        // Ensure the clouds are at the target opacity after fading
+        SetCloudOpacity(endOpacity);
+    }
+
+    private void SetCloudOpacity(float opacity)
+    {
+        // Get the current color of the clouds
+        Color cloudColor = secondLayerCloudTilemap.color;
+
+        // Set the new opacity
+        cloudColor.a = opacity;
+
+        // Apply the new color to the clouds
+        secondLayerCloudTilemap.color = cloudColor;
     }
 }
