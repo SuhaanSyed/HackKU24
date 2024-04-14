@@ -9,9 +9,26 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Game Over.unity
     guid: 9ea02eb56a3d54935b81b9fe88d0fbb3
   - enabled: 1
     path: Assets/Scenes/Conclusion.unity
     guid: ad12381543b7b4026b2ea32c76ae65ae
+=======
+    path: Assets/Scenes/MainMenu.unity
+    guid: 68e7dc1bd605543d38f19b1dba50e1de
+  - enabled: 1
+    path: Assets/Scenes/World.unity
+    guid: 20f10fdfa9a824e148983a7a8cdc7ace
+  - enabled: 1
+    path: Assets/Scenes/Story1.unity
+    guid: 31a8526f5da4044c8accbea2bf4906a4
+  - enabled: 1
+    path: Assets/Scenes/Story2.unity
+    guid: 4c31c5755d9cb44b198dcc619f3488a3
+  - enabled: 1
+    path: Assets/Scenes/Test_World.unity
+    guid: 82ea986198d834ef085e5490dbca5fec
+>>>>>>> main
   m_configObjects: {}

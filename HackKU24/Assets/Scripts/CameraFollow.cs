@@ -7,6 +7,7 @@ public class CameraFollow2D : MonoBehaviour
     public Transform target;
     public float smoothTime = 0.3F;
     private Vector2 velocity = Vector2.zero;
+    public int seedlingCount = 0;
 
     void LateUpdate()
     {

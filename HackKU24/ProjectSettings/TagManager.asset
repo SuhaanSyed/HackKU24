@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Goblin
+  - Seed
+  - SpawnRegion
+  - Plant
+  - Planter
+  - Enemy
+  - EnemySpawnRegion
   layers:
   - Default
   - TransparentFX

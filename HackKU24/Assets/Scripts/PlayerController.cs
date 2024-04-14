@@ -72,4 +72,8 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log(movementValue);
     }
+
+    public Vector2 GetMovementInput() {
+        return movementInput;
+    }
 }
