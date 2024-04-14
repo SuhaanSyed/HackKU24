@@ -20393,8 +20393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondLayerCloudTilemap: {fileID: 1529207498}
-  fadeDuration: 35
-  delay: 60
+  gameOverSceneName: HELLO
+  cloudOpacity: {fileID: 0}
+  fadeDuration: 2
 --- !u!483693784 &1529207497
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -20639,7 +20640,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: 0.71166545, w: 0.7025186}
   m_LocalPosition: {x: -66.6, y: 50, z: 0}
   m_LocalScale: {x: 18.9676, y: 23.60442, z: 1.45147}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2054602830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.741}
@@ -67703,6 +67704,7 @@ GameObject:
   - component: {fileID: 2097347400}
   - component: {fileID: 2097347399}
   - component: {fileID: 2097347398}
+  - component: {fileID: 2097347402}
   m_Layer: 0
   m_Name: clouds
   m_TagString: Untagged
@@ -67723,7 +67725,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloudTilemap: {fileID: 2097347400}
-  fadeDuration: 60
+  gameOverScene: {fileID: 0}
+  maxOpacity: 255
+  goblinDeathThreshold: 5
+  goblinDeathCount: 0
 --- !u!483693784 &2097347399
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -89577,7 +89582,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.49411768, g: 0.49411768, b: 0.49411768, a: 1}
+  m_Color: {r: 0.49411768, g: 0.49411768, b: 0.49411768, a: 0}
   m_Origin: {x: -51, y: -30, z: 0}
   m_Size: {x: 97, y: 66, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -89614,6 +89619,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2054602830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2097347402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097347397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12ea27e94626444b8a853f8fde2070b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudOpacity: {fileID: 2097347398}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
