@@ -81,3 +81,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantPrefab: {fileID: 3943691683555359903, guid: 8296fa0fc348349c6a0ce4d5a60d02a8, type: 3}
+  isPlanted: 0
